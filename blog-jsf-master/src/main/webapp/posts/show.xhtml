@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/application.xhtml">
+    <ui:define name="title">JSF Blog | Post Comments</ui:define>
+
+    <div class="large-12 columns">
+        <ui:define name="content">
+            <p>
+                <strong>Post Title:</strong>
+                #{commentBean.post.title}
+            </p>
+
+            <h3>Post comments:</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Comment text</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <ui:repeat value="#{commentBean.comments}" var="comment">
+                    <tr>
+                        <td>#{comment.text}</td>
+                        <td><a href="#">Edit</a></td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                </ui:repeat>
+                </tbody>
+            </table>
+        </ui:define>
+    </div>
+</ui:composition>
+
+</html>

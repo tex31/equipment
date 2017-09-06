@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pretty="http://ocpsoft.com/prettyfaces">
+
+<ui:composition template="/application.xhtml">
+    <ui:define name="title">JSF Blog | Referentiels</ui:define>
+
+    <div class="large-12 columns">
+        <ui:define name="content">
+            <h3>Referentiel list</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Referentiel Title</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <ui:repeat value="#{referentielBeans.refs}" var="ref">
+                    <h:form>
+                        <tr>
+                            <td>#{post.id}</td>
+                            <td>
+                               
+                            </td>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                <h:commandLink value="Delete" action="#{ref.destroy(ref)}" styleClass="button radius small alert"/>
+                            </td>
+                        </tr>
+                    </h:form>
+                </ui:repeat>
+                </tbody>
+            </table>
+
+            <p>
+                <h:link value="New ref" outcome="/referentiels/new"/>
+                |
+                <h:link value="Home" outcome="/index"/>
+            </p>
+        </ui:define>
+    </div>
+</ui:composition>
+
+</html>

@@ -18,7 +18,8 @@ public abstract class Operation implements Serializable{
 	protected Long id;
 	protected String date;
 	protected String poste;
-
+	
+	@transient
 	protected Agent operateur;
 	
 	public Long getId() {

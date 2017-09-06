@@ -1,4 +1,4 @@
-JSF, Spring, JPA CRUD blog application
+Our appli
 ---
 
 The web application using JSF 2, PrettyFaces, Spring and JPA.

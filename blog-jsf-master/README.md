@@ -15,17 +15,18 @@ The web application using JSF 2, PrettyFaces, Spring and JPA.
 - The project uses the [H2 embedded database](http://www.h2database.com/html/main.html). So no additional DB configuration required.
 - `shema.sql` file contains the database creation script
 - `test-data.sql` creates some data fixtures
-- both `schema.sql` and `test-data.sql` are referenced in `datasource-tx-jpa.xml`, **their declaration order is IMPORTANT !**
+- port default mysql
+- db name tay
 
 #### TODO's
 
-- add CRUD for Comment resource 
-- add flash messages for succes and validation errors
-- tests
+- exception
+- view
+- metier
 
 #### Running
 
-Run `mvn clean install` to download all the dependencies and initialize the project.
+mvn project
 
 To run on Tomcat server:
 
@@ -33,10 +34,3 @@ To run on Tomcat server:
 - or deploy it in a standard way via Tomcat's application manager interface.
 - or run the project directly from your favorite IDE (usually via `Project-Run` menu).
 
-#### Gotchas
-
-JSF processes all the actions as POST requests. So all the `posting`tags like `h:commandLink` or `h:commandButton`should be placed
-inside a `h:form` element, that requires some extra work with CSS. That's why the links to delete a post are not so nicely aligned :).
-
-It seems like it is not possible to process several views in the same bean (controller) like Ruby on Rails does. That's why 
-edit/update actions were extracted into a separate PostEditBean class.

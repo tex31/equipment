@@ -12,3 +12,4 @@ public class TypeMateriel extends Referentiel{
 		this.setTable("TypeMateriel");
 	}
 }
+

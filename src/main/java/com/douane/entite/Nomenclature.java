@@ -21,13 +21,11 @@ public class Nomenclature extends Referentiel {
 		this.designation = des_in;
 		this.nomenclature = nomenclature;
 		this.setTable("Nomenclature");
-		this.setLeref("Nomenclature");
 	}
 
 	public Nomenclature() {
 		super();
 		this.setTable("Nomenclature");
-		this.setLeref("Nomenclature");
 		// TODO Auto-generated constructor stub
 	}
 	

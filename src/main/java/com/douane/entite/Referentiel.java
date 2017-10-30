@@ -15,12 +15,12 @@ import javax.persistence.Transient;
 import org.springframework.core.style.ToStringCreator;
 
 @Entity
-//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class Referentiel implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
-	protected Long id;
+	protected int id;
 	
 	@Column(name="designation")
 	protected String designation;
@@ -35,7 +35,7 @@ public abstract class Referentiel implements Serializable {
 	*/
 	
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 	/*public void setId(int id) {
@@ -63,17 +63,8 @@ public abstract class Referentiel implements Serializable {
 	public void setTable(String table) {
 		this.table = table;
 	}
-	@Transient
-	protected String table;
-	@Transient
-	protected String leref;
 
-	public String getLeref() {
-		return leref;
-	}
-
-	public void setLeref(String leref) {
-		this.leref = leref;
-	}
+	@Transient protected String table;
+	
 	
 }

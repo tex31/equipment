@@ -10,6 +10,5 @@ public class MotifSortie extends Referentiel{
 	public MotifSortie(String designation){
 		super(designation);
 		this.setTable("MotifSortie");
-		this.setLeref("Motif de Sortie");
 	}
 }

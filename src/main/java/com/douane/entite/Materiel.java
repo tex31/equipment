@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,10 +27,6 @@ public class Materiel implements Serializable{
 	private String numSerie;
 	private String autre;
 	private String codification;
-	private boolean validation;
-	private String renseignement;
-	
-	private String code;
 	
 	@ManyToOne
 	@JoinColumn(name="idNom")
@@ -40,39 +35,22 @@ public class Materiel implements Serializable{
 	@JoinColumn(name="idEtat")
 	private EtatMateriel etat;
 	@ManyToOne
-	@JoinColumn(name="idCateg")
-	private CategorieMat categorie;
-	
-	
-	@ManyToOne
 	@JoinColumn(name="idCar")
 	private TypeMateriel caract;
 	@ManyToOne
 	@JoinColumn(name="idMarque")
 	private Marque marque;
-	@ManyToOne
-	@JoinColumn(name="idDirection")
-	private Direction direc;
-	@ManyToOne
-	@JoinColumn(name="idSevice")
-	private Service serv;
-	@ManyToOne
-	@JoinColumn(name="idBureau")
-	private Bureau bureau;
 	
 	
-	/*@ManyToOne
-	@JoinColumn(name="idFournisseur")
-	private Fournisseur fourni;
-	*/
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="imDetenteur")
+	@ManyToOne
+	@JoinColumn(name="imAgent")
 	private Agent detenteur;
 	
-	@ManyToOne
-	@JoinColumn(name="imDepositaire")
-	//@Transient
+	//@ManyToOne
+	//@JoinColumn(name="im")
+	@Transient
 	private Agent dc;
+	
 
 	/*
 	 * MANAGE LATER
@@ -157,7 +135,7 @@ public class Materiel implements Serializable{
 	
 	
 	public Materiel(Float pu, String reference, String numSerie, String autre, String codification,
-			Nomenclature nomenMat, EtatMateriel etat, TypeMateriel caract, Agent dc, Marque m) {
+			Nomenclature nomenMat, EtatMateriel etat, TypeMateriel caract, Agent detenteur, Agent dc, Marque m) {
 		super();
 		this.pu = pu;
 		this.reference = reference;
@@ -167,78 +145,14 @@ public class Materiel implements Serializable{
 		this.nomenMat = nomenMat;
 		this.etat = etat;
 		this.caract = caract;
+		this.detenteur = detenteur;
 		this.dc = dc;
 		this.marque = m;
-		setValidation(false);
 	}
 	public Materiel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Transient
-	protected String leref;
-
-
-	public String getLeref() {
-		return leref;
-	}
-	public void setLeref(String leref) {
-		this.leref = leref;
-	}
-	public boolean isValidation() {
-		return validation;
-	}
-	public void setValidation(boolean validation) {
-		this.validation = validation;
-	}
-	public Direction getDirec() {
-		return direc;
-	}
-	public void setDirec(Direction direc) {
-		this.direc = direc;
-	}
-	public Service getServ() {
-		return serv;
-	}
-	public void setServ(Service serv) {
-		this.serv = serv;
-	}
-	public Bureau getBureau() {
-		return bureau;
-	}
-	public void setBureau(Bureau bureau) {
-		this.bureau = bureau;
-	}
-	public String getCode() {
-		return code;
-	}
-/*	
-	public Fournisseur getFourni() {
-		return fourni;
-	}
-	public void setFourni(Fournisseur fourni) {
-		this.fourni = fourni;
-	}
-	*/
-	public void generateCode() {
-		this.code = "Type"+"..."+
-					"Bureau"+this.bureau.getCodeBureau()+
-					"Acquisition"+"??problemMatExist??"+
-					"Origine"+"??problemMatExist??";
-	}
-	public CategorieMat getCategorie() {
-		return categorie;
-	}
-	public void setCategorie(CategorieMat categorie) {
-		this.categorie = categorie;
-	}
-	public String getRenseignement() {
-		return renseignement;
-	}
-	public void setRenseignement(String renseignement) {
-		this.renseignement = renseignement;
-	}
-	
 	
 	
 	

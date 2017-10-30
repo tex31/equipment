@@ -29,7 +29,6 @@ public class MaterielNouv extends Materiel{
 	
 	public MaterielNouv() {
 		// TODO Auto-generated constructor stub
-		this.setLeref("Nouveau Matériel");
 	}
 
 	public ModeAcquisition getModAcq() {
@@ -72,16 +71,15 @@ public class MaterielNouv extends Materiel{
 		this.refFacture = refFacture;
 	}
 	public MaterielNouv(Float pu, String reference, String numSerie, String autre, Nomenclature nomenMat,
-			EtatMateriel etat, TypeMateriel caract, Agent dc, ModeAcquisition modAcq,
+			EtatMateriel etat, TypeMateriel caract, Agent detenteur, Agent dc, ModeAcquisition modAcq,
 			Financement financement, Fournisseur fournisseur, Float montant_facture, String refFacture,
 			String codif, Marque m) {
-		super(pu, reference, numSerie, autre,codif, nomenMat, etat, caract, dc, m);
+		super(pu, reference, numSerie, autre,codif, nomenMat, etat, caract, detenteur, dc, m);
 		this.modAcq = modAcq;
 		this.financement = financement;
 		this.fournisseur = fournisseur;
 		this.montant_facture = montant_facture;
 		this.refFacture = refFacture;
-		this.setLeref("Nouveaux Matériels");
 	}	
 	
 

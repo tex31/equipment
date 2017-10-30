@@ -17,6 +17,7 @@ public abstract class Operation implements Serializable{
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	protected Long id;
 	protected String date;
+	
 	protected String poste;
 	
 	@transient

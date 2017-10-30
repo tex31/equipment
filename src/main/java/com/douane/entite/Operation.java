@@ -17,12 +17,10 @@ public abstract class Operation implements Serializable{
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	protected Long id;
 	protected String date;
-
-	@transient
-	protected Agent operateur;
-	
 	protected String poste;
 	
+	@transient
+	protected Agent operateur;
 	
 	public Long getId() {
 		return id;

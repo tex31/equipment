@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Transient;
 
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
@@ -19,7 +20,7 @@ public abstract class Operation implements Serializable{
 	protected String date;
 	protected String poste;
 	
-	@transient
+	@Transient
 	protected Agent operateur;
 	
 	public Long getId() {

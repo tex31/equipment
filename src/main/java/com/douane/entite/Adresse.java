@@ -12,7 +12,7 @@ public class Adresse extends Referentiel {
 
 	public Adresse(String designation) {
 		super(designation);
-		this.setLeref("Adresse");
+		this.setTable("Adresse");
 		// TODO Auto-generated constructor stub
 	}
 	
